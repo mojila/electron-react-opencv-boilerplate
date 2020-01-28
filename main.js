@@ -1,8 +1,14 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const { EVENTS } = require('./src/consts/events');
 
 let win;
 
 const DEVELOPMENT = true;
+
+function list_files(event, args) {
+    console.log(args);
+    win.webContents.send(EVENTS.RECEIVE_LIST_FILES, 'this is the list.');
+}
 
 function createWindow() {
     win = new BrowserWindow({
@@ -20,6 +26,8 @@ function createWindow() {
     }
 
     win.webContents.openDevTools();
+
+    ipcMain.on(EVENTS.LIST_FILES, list_files);
 
     win.on('closed', () => {
         win = null;
