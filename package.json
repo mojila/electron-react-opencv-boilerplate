@@ -1,0 +1,25 @@
+{
+  "name": "electron-parcel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev-parcel": "parcel src/index.html --out-dir dev",
+    "build-parcel": "parcel build src/index.html --out-dir build --public-url ./",
+    "dev": "rm -rf dev/* && concurrently -k \"npm:dev-parcel\" \"npm:start\"",
+    "build": "rm -rf build/* && npm run build-parcel"
+  },
+  "keywords": [],
+  "author": "Mojila",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "electron": "^7.1.10",
+    "parcel-bundler": "^1.12.4"
+  }
+}
