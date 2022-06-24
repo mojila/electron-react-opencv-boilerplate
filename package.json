@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
-    "electron": "^9.4.0",
+    "electron": "^15.5.5",
     "parcel-bundler": "^1.12.4"
   }
 }
